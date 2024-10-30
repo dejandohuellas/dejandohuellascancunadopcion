@@ -11,7 +11,7 @@ const closeAdopcion = document.querySelector('.close-adopcion');
 // Función para obtener los datos de los animales desde la API
 async function obtenerAnimales() {
     try {
-        const response = await fetch('https://<proyecto>.vercel.app/api/animales');
+        const response = await fetch('https://dejandohuellascancunadopcion/api/animales');
         if (!response.ok) throw new Error('Error al obtener los datos');
         const animales = await response.json();
         mostrarAnimales(animales);
@@ -63,7 +63,7 @@ async function filtrarAnimales() {
     const edadSeleccionada = edadSelect.value;
 
     try {
-        const response = await fetch(`https://<proyecto>.vercel.app/api/animales?especie=${especieSeleccionada}&edad=${edadSeleccionada}`);
+        const response = await fetch(`https://dejandohuellascancunadopcion.vercel.app/api/animales?especie=${especieSeleccionada}&edad=${edadSeleccionada}`);
         const animalesFiltrados = await response.json();
         mostrarAnimales(animalesFiltrados);
     } catch (error) {
