@@ -40,5 +40,5 @@ mongoose.connect(process.env.MONGO_URI)
 const adminRoutes = require('./routes/admin');
 app.use('/admin', adminRoutes(upload)); // Pasamos 'upload' como middleware
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 7000;
 app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`));
