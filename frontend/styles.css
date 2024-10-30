@@ -1,0 +1,1057 @@
+/* General */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #CFF3FF;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: all 0.3s ease-in-out;
+}
+
+
+h1 {
+    font-size: 3em; /* Tamaño grande */
+    color: #FF6347; /* Color vibrante, puedes cambiarlo */
+    text-align: center;
+    font-family: 'Arial Black', sans-serif; /* Fuente llamativa */
+    text-transform: uppercase; /* Mayúsculas */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para destacar */
+    margin-bottom: 20px;
+    letter-spacing: 1px; /* Separación entre letras para elegancia */
+    animation: fadeIn 2s forwards; /* Animación suave */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+label {
+    font-family: 'Open Sans', sans-serif; /* Usa una fuente legible y moderna */
+    font-size: 30px; /* Ajusta el tamaño de fuente para que sea fácilmente legible */
+    color: #333; /* Color gris oscuro para mantenerlo sobrio y profesional */
+    font-weight: bold; /* Hace que el label se destaque */
+    display: block; /* Hace que el label esté en una línea separada para buena alineación */
+    margin-bottom: 8px; /* Agrega espacio debajo para separación con los inputs */
+}
+
+/* Navbar */
+.navbar {
+    position: fixed; /* Fija la barra de navegación */
+    top: 0; /* Alinea al borde superior */
+    left: 0; /* Alinea al borde izquierdo */
+    width: 100%; /* Ocupar todo el ancho de la pantalla */
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    background-color: #CFF3FF; /* Mantiene el color de fondo */
+    padding: 6px 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade sombra */
+    height: 80px; /* Ajusta la altura total del navbar */
+    align-items: center; /* Centra verticalmente los elementos */
+    justify-content: space-between; /* Espacio entre los elementos */
+}
+
+/* Ajuste del espacio del contenido para evitar superposición con el navbar */
+body {
+    padding-top: 60px; /* Deja espacio para la barra de navegación fija */
+}
+
+/* Mueve el enlace "Adopción" a la derecha */
+.nav-list .adopcion {
+    margin-left: auto; /* Empuja el enlace hacia la derecha */
+}
+
+.logo img {
+    width: 150px;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0); /* Color predeterminado */
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Suaviza los cambios */
+    background-color: transparent; /* Asegura que no haya fondo */
+    border: none; /* Elimina cualquier borde */
+}
+
+.nav-list li a::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #FFD54F;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav-list li a:hover {
+    color: #EC4899; /* Color rosado al hacer hover */
+    background-color: transparent; /* Elimina el fondo al hacer hover */
+    border: none; /* Asegura que no haya borde */
+    box-shadow: none; /* Elimina cualquier sombra */
+    border-radius: 0; /* Asegura que no haya esquinas redondeadas */
+}
+
+.nav-list li a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Header for mobile */
+.menu-toggle {
+    display: none;
+}
+
+
+/* Adopción Section */
+.adopcion {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.adopcion h1 {
+    text-align: center;
+    font-size: 48px;
+    color: #EC4899;
+    margin-bottom: 30px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #f7f7f7
+}
+
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.filtros select {
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid #E65100;
+    border-radius: 8px;
+    background-color: white;
+}
+
+/* Animal Cards */
+.animales {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.animal-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+}
+
+.animal-card:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    -o-transform: scale(1.05);
+}
+
+.animal-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.4s ease;
+}
+
+.animal-card h3 {
+    color: #000000;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.animal-card p {
+    color: #555;
+}
+
+/* Animaciones al hover */
+.elementor-bg-transform-zoom-in:hover .elementor-bg,
+.elementor-bg-transform-zoom-out .elementor-bg {
+    transform: scale(1.2);
+}
+
+.animales div:hover {
+    transform: scale(1.05);
+}
+
+.animal-card:hover img {
+    transform: scale(1.1);
+}
+
+/* Estilos del botón "Ver más" */
+.ver-mas {
+    background-color: #FFA500; /* Color original */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover sin cambiar color */
+.ver-mas:hover {
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #FFA500; /* Mantiene el color original al hacer hover */
+    color: white; /* Asegura que el texto siga siendo blanco */
+    transform: scale(1.05); /* Efecto de escala */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Aumenta la sombra */
+    text-transform: uppercase; /* Mantiene la transformación a mayúsculas si la necesitas */
+    line-height: 1em;
+    letter-spacing: 0px;
+    word-spacing: 0em;
+    fill: #FFFFFF;
+    color: #FFFFFF;
+    transform: scale(1.05);
+    color: #000000;
+}
+
+
+
+
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Permitir desplazamiento si es necesario */
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Elementos de la animación de entrada */
+.elementor-animated-content:hover .elementor-animated-item--enter-from-bottom {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.elementor-animated-content .elementor-animated-item--enter-from-bottom {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.6s ease;
+}
+
+.modal-content {
+    width: 60%; /* Ajusta el ancho a un 60% de la pantalla */
+    background-color: white;
+    margin: auto;
+    padding: 5;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 50%;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    animation: fadeIn 0.5s ease;
+    transform: scale(.9);
+    font-family: 'Roboto', sans-serif;
+    -webkit-transform: scale(.9);
+    -moz-transform: scale(.9);
+    -ms-transform: scale(.9);
+    -o-transform: scale(.9);
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+
+.modal-content.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.modal img {
+    max-width: 50%;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#animalImage {
+    max-width: auto;  /* Limita el ancho de la imagen al 100% del contenedor */
+    max-height: auto;  /* Limita la altura máxima de la imagen */
+    object-fit: contain;  /* Mantiene las proporciones de la imagen */
+    display: block;  /* Asegura que la imagen se renderice como bloque */
+    margin: 0 auto;  /* Centra la imagen horizontalmente */
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+
+.btn-verde {
+    width: 30%;
+    /*Aseguraqueocupetodoelanchodelcontenedorsiesnecesario*/max-width: 400px;
+    /*Ajustaeltamañomáximodelbotón*/padding: 20px 40px;
+    /*Aumentaelrellenoparahacerlomásgrande*/font-size: 24px;
+    /*Aumentaeltamañodelafuente*/background-color: #FFA500;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 9px;
+    text-decoration: none;
+    transition: background-color 0.4s ease, transform 0.4s ease;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+    line-height: 1em;
+    letter-spacing: 0px;
+    word-spacing: 0em;
+    fill: #FFFFFF;
+    color: #FFFFFF;
+    transform: scale(1.05);
+    color: #f9f9f9;
+}
+
+.btn-verde:hover {
+    background-color: #FFA500; /* Color al pasar el ratón */
+    transform: scale(1.05); /* Efecto al hacer hover */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Footer */
+footer {
+    background-color: #6EC1E4;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 5px 10px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    transition: color 0.3s ease;
+}
+
+footer ul li a:hover {
+    color: #FFD54F;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.close, .close-adopcion {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+.close:hover, .close-adopcion:hover {
+    color: #FF5733;
+}
+
+/* Botón de enviar solicitud */
+.submit-btn {
+    background-color: #FFA500;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #FFA500;
+}
+
+/*APARATDO VISUAL FORMUALRIO NUEVO */ 
+
+.modal-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2, legend {
+    text-align: center;
+    font-family: "Work Sans", Sans-serif;
+    font-size: 48px; /* Ajusta aquí el tamaño */
+    font-weight: 600;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.form-group label {
+    width: 40%;
+    font-family:"Roboto", Sans-serif;
+    font-size: 25px;
+}
+
+.form-group input, .form-group textarea {
+    width: 55%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 40px; /* Ajusta aquí el tamaño */
+}
+
+.compromisos-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.compromisos-list li {
+    margin-bottom: 10px;
+}
+
+button.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #FFA500;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 30px; /* Ajusta aquí el tamaño */
+}
+
+button.submit-btn:hover {
+    background-color: #FFA500;
+}
+.logos img {
+    display: block;
+    width: 40%; /* Cambia el tamaño según tus preferencias */
+    height: auto; /* Mantiene las proporciones */
+    position: relative;
+    left: 100px; /* Mueve la imagen hacia la derecha en píxeles */
+}
+/* Solo aplica a este modal */
+.modal.modal-formulario {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupará todo el ancho de la pantalla */
+    height: 100%; /* Ocupará todo el alto de la pantalla */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    overflow-y: auto; /* Permite desplazamiento si el contenido es largo */
+    padding: 20px;
+}
+
+.modal-content {
+    width: 90%; /* Ocupará el 90% del ancho de la pantalla */
+    max-width: 800px; /* Máximo ancho en pantallas grandes */
+    background-color: #f7f7f7;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre los elementos */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column; /* Coloca el label y el input en columna */
+    gap: 10px; /* Espacio entre el label y el campo */
+    width: 100%; /* Asegura que ocupen todo el ancho */
+}
+
+.form-group label {
+    font-size: 40px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+button.submit-btn {
+    width: 100%; /* Asegura que el botón ocupe todo el ancho */
+    padding: 15px;
+    font-size: 22px; /* Aumenta el tamaño del texto */
+    border-radius: 8px;
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.submit-btn:hover {
+    background-color: #FFA500;
+    transform: scale(1.05); /* Efecto al pasar el ratón */
+}
+/* Solo aplica al modal del formulario */
+.modal.modal-formulario {
+    display: flex;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupar toda la pantalla horizontalmente */
+    height: 100%; /* Ocupar toda la pantalla verticalmente */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; /* Centrar verticalmente */
+    overflow-y: auto; /* Permitir desplazamiento si el contenido es largo */
+    padding: 20px; /* Espacio alrededor del modal */
+}
+
+/* Ampliar el ancho del modal */
+.modal-content {
+    width: 50%; /* Ocupar el 95% del ancho de la pantalla */
+    max-width: 1200px; /* Limitar el ancho máximo en pantallas grandes */
+    height: auto; /* Adaptar la altura al contenido */
+    background-color: #f7f7f7;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espacio entre los elementos internos */
+}
+
+/* Ajuste de los grupos del formulario */
+.form-group {
+    display: flex;
+    flex-direction: column; /* Alinear verticalmente cada grupo */
+    gap: 10px; /* Espacio entre el label y el campo */
+    width: 100%; /* Ocupar todo el ancho disponible */
+}
+
+.form-group label {
+    font-size: 20px; /* Ajustar tamaño del label */
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group textarea {
+    width: 100%; /* Campos que ocupan todo el ancho */
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+/* Botón de enviar ajustado */
+button.submit-btn {
+    width: 100%; /* Ocupa todo el ancho del modal */
+    padding: 20px;
+    font-size: 22px;
+    border-radius: 8px;
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button.submit-btn:hover {
+    background-color: #FFA500;
+    transform: scale(1.05); /* Efecto al pasar el ratón */
+}
+
+
+/* Alinear las preguntas al borde izquierdo */
+.preguntas {
+    margin: 0 !important; /* Elimina márgenes */
+    padding: 0 !important; /* Elimina relleno */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    display: flex;
+    flex-direction: column; /* Organiza las preguntas en columna */
+    align-items: flex-start; /* Alinea al borde izquierdo */
+}
+
+/* Ajuste de los grupos de preguntas */
+.form-group {
+    width: 100%; /* Asegura que cada grupo ocupe todo el ancho */
+    display: flex;
+    align-items: flex-start;
+    gap: 10px; /* Espacio entre el label y el campo */
+    margin: 0;
+    padding: 0;
+}
+
+/* Labels pegados al borde izquierdo */
+.form-group label {
+    width: 30%; /* Ancho del label */
+    text-align: left; /* Asegura alineación a la izquierda */
+    margin: 0;
+    padding: 0;
+}
+
+/* Inputs y textareas */
+.form-group input,
+.form-group textarea {
+    width: 70%; /* Ocupa el espacio restante */
+    margin: 0;
+    padding: 10px; /* Mantén el padding interno */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px; /* Ajusta la altura del navbar */
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    background-color: #CFF3FF;
+    padding: 0 20px; /* Espacio lateral interno */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list .adopcion {
+    margin-left: auto; /* Empuja el botón hacia la derecha */
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: color 0.3s ease;
+}
+
+.nav-list li a:hover {
+    color: #EC4899; /* Cambia a rosado al hacer hover */
+}
+/* Estilo general del contenido del modal */
+.modal-content {
+    font-family: 'Roboto', sans-serif; /* Fuente del contenido */
+    font-size: 20px; /* Ajusta el tamaño de letra general */
+    line-height: 1.6; /* Espaciado entre líneas para mejor lectura */
+    color: #333; /* Color de la letra */
+}
+
+/* Estilo del título del modal (por ejemplo, nombre del perrito) */
+.modal-content h2 {
+    font-size: 35px; /* Tamaño del título */
+    font-weight: bold; /* Negrita para el título */
+    margin-bottom: 10px; /* Espacio debajo del título */
+    color: #000000; /* Color del título */
+}
+
+/* Estilo del párrafo o descripción del perrito */
+.modal-content p {
+    font-size: px; /* Tamaño del texto de descripción */
+    margin-bottom: 2px; /* Espacio entre párrafos */
+}
+
+/* Estilo del botón "Adoptar" */
+.modal-content .adoptar-btn {
+    font-size: 22px; /* Tamaño de la letra del botón */
+    padding: 12px 24px; /* Espacio interno del botón */
+    background-color: #FFA500; /* Color naranja */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover del botón "Adoptar" sin cambio de color */
+.modal-content .adoptar-btn:hover {
+    background-color: #FFA500; /* Mantener naranja */
+    transform: scale(1.05); /* Efecto de escala */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+/* Grupo para poner elementos en la misma línea */
+.modal-row {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos */
+    gap: 15px; /* Espacio entre raza y sexo */
+    margin-bottom: 10px; /* Espacio inferior entre filas */
+}
+
+/* Alineación y espaciado de cada etiqueta */
+.modal-row label {
+    font-size: 20px; /* Tamaño de letra de los labels */
+    font-weight: bold;
+}
+
+/* Estilo para el valor de los elementos (como raza y sexo) */
+.modal-row span {
+    font-size: 18px; /* Tamaño del texto de los valores */
+}
+
+/* Reducir margen entre párrafos y descripciones */
+.modal-content p {
+    margin: 5px 0; /* Reduce el espacio vertical entre párrafos */
+}
+/* Contenedor de las tarjetas de los animales */
+.animales {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajuste del tamaño mínimo de las tarjetas */
+    gap: 15px; /* Espacio entre tarjetas */
+    justify-content: center; /* Centra las tarjetas en el contenedor */
+}
+
+/* Tarjeta del animal */
+.animal-card {
+    width: 220px; /* Ancho fijo de la tarjeta */
+    height: 320px; /* Altura fija de la tarjeta */
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espacio entre imagen y botón */
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Imagen dentro de la tarjeta */
+.animal-card img {
+    width: 100%; /* Imagen ocupa todo el ancho de la tarjeta */
+    height: 150px; /* Altura fija para la imagen */
+    object-fit: cover; /* Asegura que la imagen mantenga proporciones */
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Botón "Ver Más" */
+.ver-mas {
+    width: 80%; /* Botón ocupa el 80% del ancho de la tarjeta */
+    padding: 8px 0;
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Evita que las tarjetas cambien de tamaño al aplicar filtros */
+.animales div {
+    flex: 0 0 auto; /* Asegura que las tarjetas mantengan su tamaño fijo */
+}
+
+.ver-mas:hover {
+    background-color: #FFA500; /* Mantiene el color al hacer hover */
+    transform: scale(1.05); /* Efecto suave al pasar el mouse */
+}
+/* Contenedor de las tarjetas */
+.animales {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Ajusta la cantidad de columnas según el espacio */
+    gap: 20px; /* Espacio entre las tarjetas */
+    justify-content: center;
+    padding: 20px; /* Espacio interior alrededor de las tarjetas */
+}
+
+/* Tarjeta del animal */
+.animal-card {
+    width: 220px; /* Ancho fijo de la tarjeta */
+    height: 350px; /* Suficiente altura para evitar solapamiento */
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribuye imagen, contenido y botón */
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Imagen dentro de la tarjeta */
+.animal-card img {
+    width: 100%; /* Imagen ocupa todo el ancho del contenedor */
+    height: 180px; /* Altura fija para la imagen */
+    object-fit: cover; /* Ajusta la imagen al tamaño sin distorsionar */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Botón "Ver Más" */
+.ver-mas {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 10px;
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px; /* Asegura espacio entre botón y contenido */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Evita cambios en el tamaño de las tarjetas con filtros */
+.animales div {
+    flex: 0 0 auto; /* Evita que las tarjetas cambien de tamaño */
+}
+
+.ver-mas:hover {
+    background-color: #CFF3FF; /* Mantiene el color naranja al hacer hover */
+    transform: scale(1.05); /* Efecto de escala */
+}
+
+/*FOOTER*/
+/* General Footer Styles */
+footer {
+    background-color: #CFF3FF;
+    padding: 0px 0;
+    font-family: "Roboto", Sans-serif;
+    color: #000000;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Footer Left Section */
+.footer-left {
+    width: 30%;
+}
+
+.footer-logo {
+    max-width: 230px;
+    margin-bottom: 15px;
+    margin-left: -165px; /* Ajusta este valor para moverlo más a la izquierda */
+}
+
+.footer-left p {
+    text-align: justify;
+    font-size: 14px;
+    line-height: 1.6;
+    
+}
+
+/* Footer Center Menu */
+.footer-center {
+    width: 25%;
+}
+/***/
+.footer-menu {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+.footer-menu-lista {
+    list-style: none; /* Elimina los puntos de la lista */
+    display: flex;
+    flex-direction: column; /* Alinea los enlaces en columna */
+    gap: 10px; /* Espacio entre los enlaces */
+    position: relative;
+    top: 50px; /* Mueve la lista hacia abajo */
+    margin-bottom: 5px; /* Espacio entre párrafos */
+    line-height: .8; /* Espacio entre líneas dentro del párrafo */
+    
+}
+p {
+    margin-bottom: 15px; /* Ajusta el espacio entre cada párrafo */
+}
+
+
+.footer-menu-lista li a {
+    text-emphasis-color: black;
+    text-decoration: none;
+    color: #333;
+    /*Ajustaeltamañodelafuente*/border-radius: 5px;
+}
+
+.footer-menu-lista li a:hover {
+    transform: scale(1.05); /* Efecto al pasar el mouse */
+    color: #EC4899; /* Cambia a rosa al pasar el mouse */
+}
+/***/
+
+
+/* Footer Right Contact Section */
+.footer-right {
+    margin-top: 20px; /* Mueve toda la sección hacia abajo */
+}
+
+.footer-right h4 {
+    text-align: left;
+    margin-bottom: 20px; /* Espacio entre el título y el primer párrafo */
+}
+
+.footer-right a {
+    text-align:start;
+    display: block;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 5px; /* Espacio entre párrafos */
+    line-height: 1.0; /* Mejora la separación entre líneas dentro del párrafo */
+}
+
+.footer-right a:hover {
+    color: #0056b3;
+}
+
+.footer-social a {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #007BFF;
+}
+
+.footer-social a:hover {
+    color: #0056b3;
+}
+
+
+
+
+/* Footer Bottom Section */
+.footer-bottom {
+
+    text-align: center;
+    padding: 2px 0;
+    background-color: #74CDEB;
+    color: #333;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    font-family: Sans-serif;
+    font-size: 17px;
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .footer-bottom a:hover {
+        text-decoration: underline;
+    }
+
+    .fa {
+        display: inline-block;
+        color: #EC4899;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale
+    }
+
+    h4 {
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}

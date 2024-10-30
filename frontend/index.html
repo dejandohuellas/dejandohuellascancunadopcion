@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Adopta a un animal de compañía en Dejando Huellas Cancún. Conoce a perros y gatos que buscan un hogar.">
+    <title>Adopta - Dejando Huellas Cancún</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="logos">
+                <a href="https://dejandohuellascancun.org/">
+                    <img src="img/Logo-Fundacion-Dejando-Huellas-por-Cancun-A.C.jpg" alt="Logo Dejando Huellas Cancún">
+                </a>
+            </div>
+            <ul class="nav-list">
+                <li><a href="index.html" class="active">Adopción</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Sección de Adopción -->
+    <section class="adopcion">
+        <div class="container">
+            <h1>¡Encuentra a tu nuevo mejor amigo!</h1>
+            <div class="filtros">
+                <label for="especie">Especie:</label>
+                <select id="especie" aria-label="Filtrar por especie">
+                    <option value="todos">Todos</option>
+                    <option value="Perro">Perros</option>
+                    <option value="Gato">Gatos</option>
+                </select>
+                <label for="edad">Edad:</label>
+                <select id="edad" aria-label="Filtrar por edad">
+                    <option value="todas">Todas</option>
+                    <option value="Cachorro">Cachorro</option>
+                    <option value="Adulto">Adulto</option>
+                </select>
+            </div>
+            <div class="animales">
+                <!-- Aquí se cargarán dinámicamente los animales disponibles -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div id="animalModal" class="modal">
+        <div class="modal-content">
+            <button class="close">&times;</button>
+            <img id="animalImage" alt="Animal en adopción">
+            <h2 id="animalName"></h2>
+            <p id="animalDescription"></p>
+            <div id="animalDetails"></div>
+            <div class="boton-modal-adopcion">
+                <button class="btn btn-verde" id="adoptar-btn">Adoptar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para el formulario de adopción -->
+    <div id="adopcionModal" class="modal">
+        <div class="modal-content">
+            <button class="close-adopcion">&times;</button>
+            <h2>Formato de Adopción Animal</h2>
+            <!-- Formulario de adopción -->
+            <!-- Aquí va el código del formulario que ya proporcionaste -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <!-- Logo y Descripción -->
+            <div class="footer-left">
+                <a href="https://dejandohuellascancun.org/">
+                    <img src="img/Logo-Fundacion-Dejando-Huellas-por-Cancun-A.C.jpg" alt="Logo Dejando Huellas" class="footer-logo">
+                </a>
+                <p>Fundación Dejando Huellas por Cancún A.C. busca mejorar la calidad de vida de perros y gatos en situaciones vulnerables mediante campañas de adopción, esterilización, rescate animal y la concientización en la población garantizando el respeto a sus derechos.</p>
+            </div>
+            
+            <!-- Menú de Navegación -->
+            <div class="footer-menu">
+                <ul class="footer-menu-lista">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#apoyar">Apoyar</a></li>
+                    <li><a href="#reportar">Reportar maltrato</a></li>
+                    <li><a href="#eventos">Eventos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+
+            <!-- Información de Contacto -->
+            <div class="footer-right">
+                <h4>Contacto</h4>
+                <a href="https://api.whatsapp.com/send/?phone=5219982602004&text&type=phone_number&app_absent=0" target="_blank">
+                    <i class="fa fa-whatsapp"></i> +52 998-870-1062
+                </a>
+                <a href="mailto:fundaciondejandohuellascancun@gmail.com"><i class="fa fa-envelope"></i> fundaciondejandohuellascancun@gmail.com</a>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/share/A8ynWaERPR9WRw6Q/?mibextid=qi2Omg" target="_blank">
+                        <i class="fa fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/dejandohuellasporcancun?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+                        <i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Copyright 2024 ®Dejando Huellas por Cancún | Powered by <a href="https://iniciativam.org" target="_blank">Iniciativa M</a></p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
