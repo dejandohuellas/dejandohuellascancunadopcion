@@ -30,7 +30,7 @@
 
     <script>
         async function cargarAnimales() {
-            const response = await fetch('http://localhost:5000/admin/animales');
+            const response = await fetch('https://dejandohuellascancunadopcion.vercel.app/admin/animales');
             const animales = await response.json();
 
             const animalList = document.getElementById('animal-list');
@@ -49,7 +49,7 @@
 
         async function eliminarAnimal(id) {
             if (confirm('¿Estás seguro de que deseas eliminar este animal?')) {
-                await fetch(`http://localhost:5000/admin/eliminar/${id}`, { method: 'DELETE' });
+                await fetch(`https://dejandohuellascancunadopcion.vercel.app/admin/eliminar/${id}`, { method: 'DELETE' });
                 alert('Animal eliminado exitosamente');
                 cargarAnimales();
             }
@@ -60,7 +60,7 @@
             event.preventDefault();
             const formData = new FormData(event.target);
 
-            await fetch('http://localhost:5000/admin/agregar', {
+            await fetch('https://dejandohuellascancunadopcion.vercel.app/admin/agregar', {
                 method: 'POST',
                 body: formData
             });
