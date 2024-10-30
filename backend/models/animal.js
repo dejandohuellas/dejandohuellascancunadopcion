@@ -11,4 +11,4 @@ const AnimalSchema = new mongoose.Schema({
     imagenUrl: String  // Para la URL de la imagen subida
 });
 
-module.exports = mongoose.model('Animal', AnimalSchema);
+module.exports = mongoose.model('animal', AnimalSchema);
