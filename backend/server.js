@@ -36,9 +36,12 @@ mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('Conectado a MongoDB'))
     .catch(error => console.error('Error al conectar a MongoDB:', error));
 
-// Importar rutas y pasar 'upload' como middleware
+// Importar y usar rutas
 const adminRoutes = require('./routes/admin');
-app.use('/admin', adminRoutes(upload)); // Pasamos 'upload' como middleware
+const animalRoutes = require('./routes/animalRoutes');
+
+app.use('/admin', adminRoutes(upload)); // Pasamos 'upload' para cargar imágenes en admin
+app.use('/animales', animalRoutes); // Sin 'upload', solo para visualización y operaciones CRUD básicas
 
 const PORT = process.env.PORT || 7000;
 app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`));
