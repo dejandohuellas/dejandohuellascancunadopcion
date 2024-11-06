@@ -42,6 +42,7 @@ function mostrarAnimales(animales) {
     });
 }
 
+
 // Función para mostrar detalles de un animal en el modal
 function mostrarDetallesAnimal(animal) {
     document.getElementById('animalImage').src = animal.imagenUrl;
