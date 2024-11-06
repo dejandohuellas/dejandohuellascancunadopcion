@@ -12,12 +12,11 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Ruta para servir imágenes
+app.use('/uploads', express.static(path.join(__dirname, 'uploads'))); // Esto es para servir las imágenes desde la carpeta 'uploads'
 
-// Verificar que la carpeta 'uploads' existe, o crearla si no
 const uploadDir = path.join(__dirname, 'uploads');
 if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir);
+    fs.mkdirSync(uploadDir); // Crear la carpeta si no existe
 }
 
 // Configuración de Multer
@@ -45,3 +44,4 @@ app.use('/animales', animalRoutes); // Sin 'upload', solo para visualización y 
 
 const PORT = process.env.PORT || 7000;
 app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`));
+
