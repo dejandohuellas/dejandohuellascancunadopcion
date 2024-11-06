@@ -25,51 +25,52 @@
         <button type="submit">Agregar Animal</button>
     </form>
 
-    <h2>Lista de Animales</h2>
-    <div id="animal-list"></div>
+<h2>Lista de Animales</h2>
+<div id="animal-list"></div>
 
-    <script>
-        async function cargarAnimales() {
-            const response = await fetch('/admin/animales');
-            const animales = await response.json();
+<script>
+    async function cargarAnimales() {
+        const response = await fetch('/admin/animales');
+        const animales = await response.json();
 
-            const animalList = document.getElementById('animal-list');
-            animalList.innerHTML = '';
-            animales.forEach(animal => {
-                const div = document.createElement('div');
-                div.innerHTML = `
-                    <img src="${animal.imagenUrl || ''}" alt="${animal.nombre}" style="width: 100px; height: auto;">
-                    <h3>${animal.nombre}</h3>
-                    <button onclick="editarAnimal('${animal._id}')">Editar</button>
-                    <button onclick="eliminarAnimal('${animal._id}')">Eliminar</button>
-                `;
-                animalList.appendChild(div);
-            });
-        }
+        const animalList = document.getElementById('animal-list');
+        animalList.innerHTML = '';
+        animales.forEach(animal => {
+            const div = document.createElement('div');
+            div.innerHTML = `
+                <img src="${animal.imagenUrl || ''}" alt="${animal.nombre}" style="width: 100px; height: auto;">
+                <h3>${animal.nombre}</h3>
+                <button onclick="editarAnimal('${animal._id}')">Editar</button>
+                <button onclick="eliminarAnimal('${animal._id}')">Eliminar</button>
+            `;
+            animalList.appendChild(div);
+        });
+    }
 
-        async function eliminarAnimal(id) {
-            if (confirm('¿Estás seguro de que deseas eliminar este animal?')) {
-                await fetch(`/admin/eliminar/${id}`, { method: 'DELETE' });
-                alert('Animal eliminado exitosamente');
-                cargarAnimales();
-            }
-        }
-
-        // Al enviar el formulario, agregar el animal
-        document.getElementById('form-animal').onsubmit = async (event) => {
-            event.preventDefault();
-            const formData = new FormData(event.target);
-
-            await fetch('/admin/agregar', {
-                method: 'POST',
-                body: formData
-            });
-            alert('Animal agregado exitosamente');
+    async function eliminarAnimal(id) {
+        if (confirm('¿Estás seguro de que deseas eliminar este animal?')) {
+            await fetch(`/admin/eliminar/${id}`, { method: 'DELETE' });
+            alert('Animal eliminado exitosamente');
             cargarAnimales();
-        };
+        }
+    }
 
+    // Al enviar el formulario, agregar el animal
+    document.getElementById('form-animal').onsubmit = async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+
+        await fetch('/admin/agregar', {
+            method: 'POST',
+            body: formData
+        });
+        alert('Animal agregado exitosamente');
         cargarAnimales();
-    </script>
+    };
+
+    cargarAnimales();
+</script>
+
 </body>
 </html>
 
